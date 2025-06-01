@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback, useRef } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { LOCAL_API_URL } from "../environment";
@@ -22,6 +22,7 @@ export default function Table({ className = "" }: { className?: string }) {
   const [hasMore, setHasMore] = useState(true);
   const [initialLoad, setInitialLoad] = useState(true);
   const navigate = useNavigate();
+  const observerRef = useRef<HTMLDivElement>(null);
 
   const fetchUsers = useCallback(async () => {
     if (!hasMore || loading) return;
@@ -73,10 +74,27 @@ export default function Table({ className = "" }: { className?: string }) {
     }
   };
 
-  const handleLoadMore = () => {
-    if (!hasMore || loading) return;
-    fetchUsers();
-  };
+  // Настройка Intersection Observer для Infinite Scroll
+  useEffect(() => {
+    if (!observerRef.current || !hasMore || loading) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting) {
+          fetchUsers();
+        }
+      },
+      { threshold: 0.1 },
+    );
+
+    observer.observe(observerRef.current);
+
+    return () => {
+      if (observerRef.current) {
+        observer.unobserve(observerRef.current);
+      }
+    };
+  }, [fetchUsers, hasMore, loading]);
 
   useEffect(() => {
     fetchUsers();
@@ -104,7 +122,7 @@ export default function Table({ className = "" }: { className?: string }) {
         </button>
       </div>
 
-      <div className="overflow-x-auto rounded-lg shadow-md">
+      <div className="scrollbar-light scrollbar-dark overflow-x-auto rounded-lg shadow-md">
         <table className="min-w-full bg-white dark:bg-slate-800">
           <thead className="bg-gray-100 dark:bg-slate-700">
             <tr>
@@ -205,17 +223,12 @@ export default function Table({ className = "" }: { className?: string }) {
         </table>
       </div>
 
-      {hasMore && (
-        <div className="mt-4 flex justify-center">
-          <button
-            onClick={handleLoadMore}
-            disabled={loading || !hasMore}
-            className={`rounded-lg bg-slate-200 px-4 py-2 transition-colors hover:cursor-pointer hover:bg-slate-300 dark:bg-slate-700 dark:text-slate-200 dark:hover:bg-slate-600 ${
-              loading || !hasMore ? "cursor-not-allowed opacity-50" : ""
-            }`}
-          >
-            {loading ? "Loading..." : "Load More"}
-          </button>
+      {/* Элемент для отслеживания скролла */}
+      <div ref={observerRef} className="h-1 w-full" />
+
+      {loading && (
+        <div className="mt-4 text-center text-slate-500 dark:text-slate-400">
+          Loading more users...
         </div>
       )}
 

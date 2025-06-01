@@ -1,54 +1,23 @@
-# React + TypeScript + Vite
+# Функционал
+Веб-приложение реализует таблицу. с 10 полями (11 поле используется для действий изменить и удалить). Реализована логика подгрузки новых данных при скролле вниз. Используется встроенный useState для управления состоянием данных (users), загрузки (loading) и наличия дополнительных данных (hasMore). Выбор оправдан, так как приложение простое и не требует сложного управления состоянием, useState достаточно для обработки данных таблицы и их подгрузки, а также нет необходимости в дополнительных стейт-менеджерах (например, Redux или MobX), так как нет глобального состояния или сложных взаимодействий между компонентами. Есть формы для создания и изменения записей. Есть возможность удалять записи. Поля имеют валидацию как на клиентской части, так и на серверной. Реализована светлая и тёмная тема, а также адаптивная вёрстка.  
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Стек решения:
+- Клиентская часть была реализована с помощью React (TypeScript), используя такие фреймворки, как Tailwind.css, Flowbite и библиотеку Axios.
+- Серверная часть была реализована с помощью json-server, а также Node.js (Express.js)
 
-Currently, two official plugins are available:
+# Инструкция по запуску
+- Получить решение из гитхаба (например, с помощью git clone https://github.com/AlexL69420/vk-table-app)
+- Открыть папку VK-table-client в терминале и ввести:
+   - npm i  
+   - npm run dev  
+   - кликнуть на появившуюся ссылку (здесь можно будет посмотреть порт фронтенда)
+- Открыть папку table-json-server в терминале и ввести:
+   - npm i json-server
+   - json-server --watch db.json
+- Открыть ещё один терминал в этой же папке и ввести:
+   - npm i  
+   - npm start
+- Наслаждаться работающим веб-сайтом
+- Если сайт не работает, то возможно эта проблема связана с неправильным портом фронтенда. Зайдите в table-json-server/app.mjs и проверьте, что cors ожидает запросы от правильного порта.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ["./tsconfig.node.json", "./tsconfig.app.json"],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-});
-```
-
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from "eslint-plugin-react-x";
-import reactDom from "eslint-plugin-react-dom";
-
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    "react-x": reactX,
-    "react-dom": reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs["recommended-typescript"].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-});
-```
+При возникновении проблем с использованией приложения можно обратиться к разработчику: @FiredAgitator
