@@ -1,0 +1,152 @@
+{
+  "users": [
+    {
+      "id": "1",
+      "name": "John Doe",
+      "email": "john@example.com",
+      "age": 30,
+      "status": "active",
+      "position": "Senior Developer",
+      "salary": 5000,
+      "address": "123 Main St, Boston, MA",
+      "phone": "+123456789",
+      "skills": [
+        "React",
+        "TypeScript",
+        "Node.js"
+      ]
+    },
+    {
+      "id": "2",
+      "name": "Jane Smith",
+      "email": "jane@example.com",
+      "age": 28,
+      "status": "active",
+      "position": "UX Designer",
+      "salary": 4500,
+      "address": "456 Oak Ave, San Francisco, CA",
+      "phone": "+198765432",
+      "skills": [
+        "Figma",
+        "UI/UX",
+        "Prototyping"
+      ]
+    },
+    {
+      "id": "3",
+      "name": "Bob Johnson",
+      "email": "bob@example.com",
+      "age": 35,
+      "status": "inactive",
+      "position": "Product Manager",
+      "salary": 6500,
+      "address": "789 Pine Rd, New York, NY",
+      "phone": "+165432198",
+      "skills": [
+        "Agile",
+        "Scrum",
+        "Product Roadmaps"
+      ]
+    },
+    {
+      "id": "4",
+      "name": "Alice Brown",
+      "email": "alice@example.com",
+      "age": 25,
+      "status": "active",
+      "position": "Junior Developer",
+      "salary": 3800,
+      "address": "321 Elm St, Seattle, WA",
+      "phone": "+178945612",
+      "skills": [
+        "JavaScript",
+        "HTML/CSS",
+        "Vue.js",
+        "React"
+      ]
+    },
+    {
+      "id": "5",
+      "name": "Charlie Wilson",
+      "email": "charlie@example.com",
+      "age": 40,
+      "status": "active",
+      "position": "CTO",
+      "salary": 8500,
+      "address": "654 Maple Dr, Austin, TX",
+      "phone": "+112233445",
+      "skills": [
+        "Leadership",
+        "Architecture",
+        "Strategic Planning"
+      ]
+    },
+    {
+      "id": "6",
+      "name": "Bob Johnson",
+      "email": "bob@example.com",
+      "age": 69,
+      "status": "inactive",
+      "position": "Product Manager",
+      "salary": 6500,
+      "address": "789 Pine Rd, New York, NY",
+      "phone": "+165432198",
+      "skills": [
+        "Agile",
+        "Scrum",
+        "Product Roadmaps"
+      ]
+    },
+    {
+      "id": "7",
+      "name": "Alice Brown",
+      "email": "alice@example.com",
+      "age": 21,
+      "status": "active",
+      "position": "Junior Developer",
+      "salary": 3800,
+      "address": "321 Elm St, Seattle, WA",
+      "phone": "+178945612",
+      "skills": [
+        "JavaScript",
+        "HTML/CSS",
+        "Vue.js"
+      ]
+    },
+    {
+      "id": "8bce",
+      "status": "inactive",
+      "skills": [
+        "TypeScript",
+        "React",
+        "JavaScript",
+        "Node.js",
+        "Scrum"
+      ],
+      "name": "alexandr12345",
+      "email": "alexleto24@gmail.com",
+      "age": 23,
+      "position": "Junior Developer",
+      "salary": 2000,
+      "address": "The Red Square, Moskow",
+      "phone": "+79153920465"
+    },
+    {
+      "id": "2702",
+      "status": "active",
+      "skills": [
+        "Node.js",
+        "TypeScript",
+        "Figma",
+        "JavaScript"
+      ],
+      "name": "alexandr alex",
+      "email": "alexleto24@gmail.com",
+      "age": 20,
+      "position": "Junior Developer",
+      "salary": 3300,
+      "address": "The Red Square, Moskow",
+      "phone": "89153920465"
+    }
+  ]
+}
